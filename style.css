@@ -1,0 +1,1055 @@
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Poppins",sans-serif;
+    overflow:hidden;
+    height:100vh;
+
+    background:
+    radial-gradient(circle at top,#fffdfd 0%,#ffeef5 25%,#ffdce8 60%,#f8cddc 100%);
+
+    color:#6f5562;
+}
+
+/* =========================
+   LOADING
+========================= */
+
+#loading{
+    position:fixed;
+    inset:0;
+    background:#fff7fa;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
+    z-index:9999;
+    transition:.8s;
+}
+
+.loader{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    border:4px solid #ffd7e6;
+    border-top-color:#d881a5;
+    animation:spin 1.2s linear infinite;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+#loading p{
+    letter-spacing:2px;
+    color:#a26e87;
+    font-size:.95rem;
+}
+
+/* =========================
+   PETALS
+========================= */
+
+#petals{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+.petal{
+    position:absolute;
+    width:20px;
+    height:20px;
+    background:rgba(255,189,211,.7);
+
+    border-radius:
+    100% 0
+    100% 0;
+
+    transform:rotate(45deg);
+
+    filter:blur(.2px);
+
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+
+0%{
+transform:translateY(-120px) rotate(0deg);
+opacity:0;
+}
+
+10%{
+opacity:1;
+}
+
+100%{
+transform:
+translateY(120vh)
+translateX(120px)
+rotate(720deg);
+
+opacity:0;
+
+}
+
+}
+
+/* =========================
+   MAIN
+========================= */
+
+#main{
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.hero{
+
+    width:92%;
+    max-width:1300px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+}
+
+/* =========================
+   LEFT
+========================= */
+
+.left{
+
+width:45%;
+
+animation:fadeLeft 1.2s;
+
+}
+
+.left h1{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:78px;
+
+font-weight:700;
+
+color:#c56d8f;
+
+line-height:1;
+
+}
+
+.left h2{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:60px;
+
+font-weight:500;
+
+margin-top:-5px;
+
+color:#9c6c7c;
+
+}
+
+.subtitle{
+
+margin-top:30px;
+
+line-height:32px;
+
+font-size:18px;
+
+max-width:480px;
+
+color:#7d6470;
+
+}
+
+#openBtn{
+
+margin-top:40px;
+
+padding:16px 42px;
+
+border:none;
+
+border-radius:40px;
+
+background:#d889a8;
+
+color:white;
+
+font-size:16px;
+
+cursor:pointer;
+
+transition:.4s;
+
+box-shadow:
+0 10px 35px
+rgba(216,137,168,.35);
+
+}
+
+#openBtn:hover{
+
+transform:translateY(-4px);
+
+background:#c97497;
+
+}
+
+/* =========================
+   RIGHT
+========================= */
+
+.right{
+
+width:50%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+/* =========================
+   BOUQUET
+========================= */
+
+.bouquet{
+
+position:relative;
+
+width:520px;
+
+animation:floating 4s ease-in-out infinite;
+
+}
+
+#bouquetImage{
+
+width:100%;
+
+user-select:none;
+
+pointer-events:none;
+
+filter:
+
+drop-shadow(0 40px 45px rgba(0,0,0,.15));
+
+}
+
+.glow{
+
+position:absolute;
+
+width:280px;
+
+height:280px;
+
+left:50%;
+
+top:45%;
+
+transform:translate(-50%,-50%);
+
+background:
+
+radial-gradient(circle,
+rgba(255,223,235,.95),
+transparent 70%);
+
+filter:blur(30px);
+
+z-index:-1;
+
+animation:glow 4s ease infinite;
+
+}
+
+
+
+@keyframes floating{
+
+0%,100%{
+
+transform:
+translateY(0)
+rotate(0deg);
+
+}
+
+50%{
+
+transform:
+translateY(-14px)
+rotate(1deg);
+
+}
+
+}
+
+/* =========================
+   LETTER
+========================= */
+
+#letterSection{
+
+position:fixed;
+
+inset:0;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:
+
+rgba(255,250,252,.93);
+
+backdrop-filter:blur(16px);
+
+opacity:0;
+
+visibility:hidden;
+
+transition:1s;
+
+}
+
+.letter{
+
+width:760px;
+
+max-width:92%;
+
+}
+
+
+.paper h2{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:50px;
+
+margin-bottom:25px;
+
+color:#b06787;
+
+}
+
+#typing{
+
+line-height:36px;
+
+font-size:18px;
+
+color:#6c5862;
+
+white-space:pre-wrap;
+
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeLeft{
+
+from{
+
+opacity:0;
+
+transform:
+
+translateX(-80px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:980px){
+
+.hero{
+
+flex-direction:column-reverse;
+
+text-align:center;
+
+gap:40px;
+
+}
+
+.left,
+.right{
+
+width:100%;
+
+}
+
+.left h1{
+
+font-size:58px;
+
+}
+
+.left h2{
+
+font-size:45px;
+
+}
+
+.subtitle{
+
+margin:auto;
+margin-top:20px;
+
+}
+
+#openBtn{
+
+margin-top:30px;
+
+}
+
+.bouquet{
+
+width:340px;
+
+}
+
+.paper{
+
+padding:35px;
+
+}
+
+}
+
+/* ===================================
+   MORNING SUNLIGHT
+=================================== */
+
+.sun-glow{
+    position:absolute;
+    width:280px;
+    height:280px;
+    left:50%;
+    top:45%;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(circle,
+    rgba(255,223,235,.95),
+    transparent 70%);
+    filter:blur(30px);
+    z-index:-1;
+    animation:sunPulse 4s ease infinite;
+}
+
+@keyframes sunPulse{
+
+50%{
+
+transform:
+translate(-50%,-50%)
+scale(1.12);
+
+}
+
+}
+
+/* ===================================
+   RIBBON
+=================================== */
+
+.ribbon{
+
+position:absolute;
+
+left:50%;
+bottom:65px;
+
+transform:translateX(-50%);
+
+width:120px;
+height:34px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+transition:1s;
+
+}
+
+.knot{
+
+width:26px;
+height:26px;
+
+background:#d887a7;
+
+border-radius:50%;
+
+z-index:2;
+
+box-shadow:
+
+0 4px 15px rgba(0,0,0,.15);
+
+}
+
+.left-loop,
+.right-loop{
+
+position:absolute;
+
+width:42px;
+height:42px;
+
+border:7px solid #d887a7;
+
+border-radius:50%;
+
+}
+
+.left-loop{
+
+left:8px;
+
+}
+
+.right-loop{
+
+right:8px;
+
+}
+
+/* Ribbon animation */
+
+.ribbon.open{
+
+opacity:0;
+
+transform:
+
+translateX(-50%)
+translateY(35px)
+scale(.5);
+
+}
+
+/* ===================================
+   LETTER
+=================================== */
+
+.paper{
+
+position:relative;
+
+z-index:2;
+
+margin:auto;
+
+width:90%;
+
+padding:60px;
+
+border-radius:25px;
+
+background:
+rgba(255,255,255,.82);
+
+backdrop-filter:blur(20px);
+
+box-shadow:
+0 25px 70px rgba(0,0,0,.12);
+
+border:
+1px solid rgba(255,255,255,.6);
+
+
+transform:
+translateY(120px)
+scale(.92);
+
+opacity:0;
+
+transition:1s;
+
+}
+
+.paper.show{
+
+transform:
+
+translateY(0)
+scale(1);
+
+opacity:1;
+
+}
+
+/* ===================================
+   BOUQUET
+=================================== */
+
+.bouquet.open img{
+
+transform:
+
+scale(.82)
+rotate(-6deg);
+
+opacity:.18;
+
+transition:1s;
+
+}
+
+.sunlight{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+
+    background:
+    linear-gradient(
+    120deg,
+    rgba(255,255,255,.55),
+    transparent 35%,
+    transparent 70%,
+    rgba(255,240,245,.25));
+
+    animation:sunMove 12s ease-in-out infinite;
+}
+
+@keyframes sunMove{
+
+0%,100%{
+transform:translateX(-40px);
+}
+
+50%{
+transform:translateX(40px);
+}
+
+}
+
+#sparkles{
+position:fixed;
+inset:0;
+pointer-events:none;
+}
+
+.sparkle{
+
+position:absolute;
+
+width:4px;
+height:4px;
+
+background:white;
+
+border-radius:50%;
+
+box-shadow:
+0 0 12px white;
+
+animation:twinkle linear;
+}
+
+@keyframes twinkle{
+
+0%{
+
+opacity:0;
+transform:scale(0);
+
+}
+
+50%{
+
+opacity:1;
+transform:scale(1.8);
+
+}
+
+100%{
+
+opacity:0;
+transform:scale(0);
+
+}
+
+}
+
+#signature{
+
+    margin-top:50px;
+
+    font-family:"Cormorant Garamond", serif;
+
+    font-size:34px;
+
+    color:#b06d8a;
+
+    opacity:0;
+
+    transition:2s;
+
+}
+
+#signature.show{
+
+    opacity:1;
+
+}
+
+#openBtn{
+
+animation:
+buttonGlow 3s infinite;
+
+}
+
+
+@keyframes buttonGlow{
+
+0%,100%{
+
+box-shadow:
+0 10px 35px
+rgba(216,137,168,.35);
+
+}
+
+
+50%{
+
+box-shadow:
+0 10px 50px
+rgba(216,137,168,.65);
+
+}
+
+}
+
+/* ===================================
+   REALISTIC BOUQUET EFFECT
+=================================== */
+
+
+.bouquet{
+
+perspective:1000px;
+
+}
+
+
+/* Flower depth */
+
+#bouquetImage{
+
+position:relative;
+
+z-index:2;
+
+transition:1.2s ease;
+
+}
+
+
+/* Ground shadow */
+
+.flower-shadow{
+
+position:absolute;
+
+bottom:35px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:280px;
+
+height:60px;
+
+background:
+
+radial-gradient(
+ellipse,
+rgba(120,70,90,.25),
+transparent 70%
+);
+
+filter:blur(15px);
+
+z-index:1;
+
+}
+
+
+/* Leaves */
+
+.leaf{
+
+position:absolute;
+
+background:
+
+linear-gradient(
+135deg,
+#6f9b72,
+#9bc28d
+);
+
+width:55px;
+
+height:25px;
+
+border-radius:
+
+100% 0 100% 0;
+
+z-index:3;
+
+opacity:.85;
+
+animation:leafMove 5s ease-in-out infinite;
+
+}
+
+
+/* Leaf positions */
+
+
+.leaf1{
+
+left:80px;
+
+bottom:120px;
+
+transform:rotate(-35deg);
+
+}
+
+
+.leaf2{
+
+right:90px;
+
+bottom:150px;
+
+transform:rotate(40deg);
+
+animation-delay:1s;
+
+}
+
+
+.leaf3{
+
+left:200px;
+
+bottom:90px;
+
+transform:rotate(15deg);
+
+animation-delay:2s;
+
+}
+
+
+@keyframes leafMove{
+
+
+50%{
+
+transform:
+rotate(0deg)
+translateY(-5px);
+
+}
+
+}
+
+
+/* Bouquet 3D hover */
+
+.bouquet:hover #bouquetImage{
+
+transform:
+
+rotateY(-8deg)
+rotateX(5deg)
+scale(1.03);
+
+}
+
+
+/* Opening animation */
+
+
+.bouquet.open #bouquetImage{
+
+transform:
+
+scale(.82)
+rotateY(-15deg)
+rotate(-6deg);
+
+opacity:.25;
+
+}
+
+
+.bouquet.open .leaf{
+
+opacity:0;
+
+transition:1s;
+
+}
+
+/* ===================================
+   ENVELOPE OPENING
+=================================== */
+
+.envelope{
+
+position:relative;
+
+width:760px;
+
+max-width:92%;
+
+height:auto;
+
+}
+
+
+.envelope::before{
+
+content:"";
+
+position:absolute;
+
+bottom:0;
+
+left:0;
+
+width:100%;
+
+height:180px;
+
+background:
+
+linear-gradient(
+135deg,
+#f6d6df,
+#fbe8ee
+);
+
+border-radius:20px;
+
+z-index:1;
+
+}
+
+
+/* Envelope flap */
+
+.flap{
+
+position:absolute;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:200px;
+
+background:
+
+linear-gradient(
+135deg,
+#f8dce5,
+#ffeef4
+);
+
+clip-path:
+
+polygon(
+0 0,
+100% 0,
+50% 100%
+);
+
+transform-origin:top;
+
+transition:1s;
+
+z-index:3;
+
+}
+
+
+
+/* Open animation */
+
+.envelope.open .flap{
+
+transform:
+
+rotateX(180deg);
+
+opacity:.2;
+
+}
+
+
